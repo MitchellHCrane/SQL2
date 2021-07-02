@@ -1,6 +1,9 @@
 -- Get all invoices where the unit_price on the invoice_line is greater than $0.99.
-SELECT * FROM invoice_line 
-WHERE unit_price > .99
+SELECT * 
+FROM invoice i
+JOIN invoice_line il 
+ON il.invoice_id = i.invoice_id
+WHERE il.unit_price > 0.99;
 
 -- Get the invoice_date, customer first_name and last_name, and total from all invoices.
 SELECT invoice_date, first_name, last_name, total
